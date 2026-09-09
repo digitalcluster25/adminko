@@ -13,6 +13,13 @@ import {
  * Мок-хранилище внешнего вида админки на localStorage. Интерфейс хука
  * рассчитан на прямую замену на запрос к реальному API позже — компоненты,
  * которые его используют, менять не придётся.
+ *
+ * Поток данных однонаправленный: update/reset только ПИШУТ в хранилище, а
+ * локальное состояние всех подписчиков обновляется из события хранилища.
+ * Побочных эффектов внутри апдейтера setState нет — иначе React ругается
+ * "Cannot update a component while rendering a different component", потому
+ * что апдейтер выполняется в фазе рендера, а запись синхронно уведомляет
+ * другие компоненты (AppBackground).
  */
 export function useAdminAppearance() {
   const [appearance, setAppearance] = React.useState<AdminAppearance>(DEFAULT_APPEARANCE);
@@ -34,17 +41,14 @@ export function useAdminAppearance() {
     };
   }, []);
 
+  // Источник правды — само хранилище, поэтому читаем актуальное значение
+  // перед записью, а не полагаемся на состояние из замыкания.
   const update = React.useCallback((patch: Partial<AdminAppearance>) => {
-    setAppearance((prev) => {
-      const next = { ...prev, ...patch };
-      writeAppearance(next);
-      return next;
-    });
+    writeAppearance({ ...readAppearance(), ...patch });
   }, []);
 
   const reset = React.useCallback(() => {
     writeAppearance(DEFAULT_APPEARANCE);
-    setAppearance(DEFAULT_APPEARANCE);
   }, []);
 
   return { appearance, hydrated, update, reset };
