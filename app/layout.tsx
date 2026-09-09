@@ -13,18 +13,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className="antialiased">
       <body className="font-sans">
-        <SidebarProvider>
-          <AppSidebar />
-          {/* bg-transparent: у SidebarInset по умолчанию непрозрачный
-              bg-background, который перекрывает fixed-слой градиента
-              AppBackground (позиционированный потомок с z-index:-10
-              всё равно красится ПОСЛЕ собственного фона позиционированного
-              предка без своего stacking context — поэтому предок обязан
-              быть прозрачным). */}
-          <SidebarInset className="bg-transparent">
-            <AppBackground>{children}</AppBackground>
-          </SidebarInset>
-        </SidebarProvider>
+        {/* AppBackground — фон на весь физический экран (fixed, вне зависимости
+            от вложенности). Внутри — отступ 25px от РЕАЛЬНОГО края экрана со
+            всех 4 сторон, в котором сама панель (сайдбар+контент) плавает
+            единой карточкой поверх градиента. */}
+        <AppBackground>
+          <div className="box-border flex h-svh w-full p-[25px]">
+            <SidebarProvider className="h-full min-h-0 w-full overflow-hidden rounded-xl border border-border bg-sidebar shadow-sm">
+              <AppSidebar />
+              <SidebarInset className="h-full min-h-0 overflow-y-auto">
+                {children}
+              </SidebarInset>
+            </SidebarProvider>
+          </div>
+        </AppBackground>
       </body>
     </html>
   );

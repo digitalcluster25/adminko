@@ -40,7 +40,7 @@ export default function AdminSettingsPage() {
   return (
     <>
       <AppTopbar title="Настройки админко" />
-      <main className="flex flex-1 flex-col gap-4 p-[25px]">
+      <main className="flex flex-1 flex-col gap-4 p-6">
         <div className="grid gap-4 lg:grid-cols-2">
           <Card>
             <CardHeader>

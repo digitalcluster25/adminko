@@ -13,7 +13,7 @@ export default function DashboardPage() {
   return (
     <>
       <AppTopbar title="Панель управления" />
-      <main className="flex flex-1 flex-col gap-4 p-[25px]">
+      <main className="flex flex-1 flex-col gap-4 p-6">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {TILES.map((tile) => (
             <div key={tile.label} className="rounded-lg border border-border bg-card p-4">
