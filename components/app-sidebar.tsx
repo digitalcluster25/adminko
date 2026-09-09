@@ -108,15 +108,12 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="h-full">
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild>
-              <Link href="/">
-                <span className="truncate font-semibold">Adminko V2</span>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        {/* Текстовый логотип, не кнопка: без ссылки, ховера и фона.
+            18px = 14px базового текста сайдбара +30%. В свёрнутом
+            состоянии скрыт, чтобы не обрезался. */}
+        <div className="px-2 py-2 text-[18px] leading-none font-bold group-data-[collapsible=icon]:hidden">
+          Adminko V2
+        </div>
       </SidebarHeader>
 
       <SidebarContent>
