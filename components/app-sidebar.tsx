@@ -19,7 +19,6 @@ import {
   Package,
   FolderTree,
   Settings,
-  Flame,
   BadgeRussianRuble,
   FileText,
   Newspaper,
@@ -111,17 +110,9 @@ export function AppSidebar() {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton asChild>
               <Link href="/">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Flame className="size-4" />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">HWS Adminko</span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    v2 (мок-данные)
-                  </span>
-                </div>
+                <span className="truncate font-semibold">Adminko V2</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
