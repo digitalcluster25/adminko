@@ -53,12 +53,6 @@ export function AppBackground({ children }: { children: React.ReactNode }) {
         className="pointer-events-none fixed inset-0 -z-10 transition-opacity duration-300"
         style={{ ...layerStyle, opacity: hydrated ? 1 : 0 }}
       />
-      {appearance.backgroundImage && (
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 bg-background/72 backdrop-blur-[1px]"
-        />
-      )}
       {children}
     </div>
   );
