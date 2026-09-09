@@ -32,6 +32,7 @@ import {
   Tags,
   Users,
   Percent,
+  Palette,
   type LucideIcon,
 } from "lucide-react";
 
@@ -90,6 +91,14 @@ const NAV_GROUPS: NavGroup[] = [
       { href: "/users", label: "Пользователи", icon: Users },
       { href: "/settings", label: "Настройки", icon: Cog },
       { href: "/history", label: "История", icon: History },
+    ],
+  },
+  {
+    // Отдельная группа — оформление самой панели Админко (localStorage-мок),
+    // не путать с "Настройки" выше (настройки магазина).
+    title: "Админко",
+    items: [
+      { href: "/admin-settings", label: "Настройки админко", icon: Palette },
     ],
   },
 ];
