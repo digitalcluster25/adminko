@@ -42,7 +42,7 @@ export default function AdminSettingsPage() {
       <AppTopbar title="Настройки админко" />
       <main className="flex flex-1 flex-col gap-4 p-6">
         <div className="grid gap-4 lg:grid-cols-2">
-          <Card>
+          <Card className="shadow-none">
             <CardHeader>
               <CardTitle>Фоновое изображение</CardTitle>
               <CardDescription>
@@ -91,7 +91,7 @@ export default function AdminSettingsPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="shadow-none">
             <CardHeader>
               <CardTitle>Акцентный цвет</CardTitle>
               <CardDescription>
@@ -135,7 +135,7 @@ export default function AdminSettingsPage() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="shadow-none">
           <CardHeader>
             <CardTitle>Сброс оформления</CardTitle>
             <CardDescription>

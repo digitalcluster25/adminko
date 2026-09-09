@@ -19,7 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             единой карточкой поверх градиента. */}
         <AppBackground>
           <div className="box-border flex h-svh w-full p-[25px]">
-            <SidebarProvider className="h-full min-h-0 w-full overflow-hidden rounded-xl border border-border bg-sidebar shadow-sm">
+            <SidebarProvider className="h-full min-h-0 w-full overflow-hidden rounded-xl border border-border bg-sidebar">
               <AppSidebar />
               <SidebarInset className="h-full min-h-0 overflow-y-auto">
                 {children}
