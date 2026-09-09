@@ -107,7 +107,7 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="h-full">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
