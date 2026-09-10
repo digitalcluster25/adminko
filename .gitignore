@@ -4,3 +4,5 @@ out/
 .env*
 *.log
 _verify-screenshot*.png
+test-results/
+playwright-report/
